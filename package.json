@@ -12,7 +12,8 @@
 	},
 	"dependencies": {
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
+		"react-dom": "^17.0.2",
+		"styled-components": "^5.3.3"
 	},
 	"name": "curso-platzi-react-avanzado",
 	"description": "**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev",
