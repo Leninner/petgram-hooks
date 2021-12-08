@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Category } from '../Category';
 import { List, Item } from './style';
 import axios from 'axios';
+import { Spinner } from '../Spinner';
 
 const useCategoriesData = () => {
 	const [categories, setCategories] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		setLoading(true);
 		axios('https://petgram-server-leninner.vercel.app/categories').then((response) => {
 			setCategories(response.data);
 			setLoading(false);
@@ -48,7 +48,7 @@ export const ListOfCategories = () => {
 	};
 
 	if (loading) {
-		return <h1>Loading...</h1>;
+		return <Spinner />;
 	}
 
 	return (
