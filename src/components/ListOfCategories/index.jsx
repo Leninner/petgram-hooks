@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Category } from '../Category';
 import { List, Item } from './style';
-import axios from 'axios';
 import { Spinner } from '../Spinner';
+import { useDataFetched } from '../../hooks/useDataFetched';
 
-const useCategoriesData = () => {
-	const [categories, setCategories] = useState([]);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		axios('https://petgram-server-leninner.vercel.app/categories').then((response) => {
-			setCategories(response.data);
-			setLoading(false);
-		});
-	}, []);
-
-	return { categories, loading };
-};
+const API = 'https://petgram-server-leninner.vercel.app/categories';
 
 export const ListOfCategories = () => {
-	const { categories, loading } = useCategoriesData();
+	const { categories, loading } = useDataFetched(API, 'categories');
 
 	const [showFixed, setShowFixed] = useState(false);
 
