@@ -12,7 +12,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
 
   const [liked, setLiked] = useLocalStorage(key, false);
   const [show, imgRef] = useNearScreen();
-  const { mutation, mutationLoading, mutationError } = useToggleLikeMutation();
+  const { mutation, loading, error } = useToggleLikeMutation();
 
   const handleFavClick = () => {
     !liked &&
@@ -24,7 +24,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
     setLiked(!liked);
   };
 
-  console.log('{ mutation, mutationLoading, mutationError }', { mutation, mutationLoading, mutationError });
+  console.log('{ mutation,loading, error }', { mutation, loading, error });
 
   return (
     <Article ref={imgRef}>

@@ -7,42 +7,42 @@ import { useDataFetched } from '../../hooks/useDataFetched';
 const API = 'https://petgram-server-leninner.vercel.app/categories';
 
 export const ListOfCategories = () => {
-	const { categories, loading } = useDataFetched(API, 'categories');
+  const { categories, loading } = useDataFetched(API, 'categories');
 
-	const [showFixed, setShowFixed] = useState(false);
+  const [showFixed, setShowFixed] = useState(false);
 
-	useEffect(() => {
-		const onScroll = (e) => {
-			const newShowFixed = window.scrollY > 200;
+  useEffect(() => {
+    const onScroll = (e) => {
+      const newShowFixed = window.scrollY > 200;
 
-			showFixed !== newShowFixed && setShowFixed(newShowFixed);
-		};
+      showFixed !== newShowFixed && setShowFixed(newShowFixed);
+    };
 
-		document.addEventListener('scroll', onScroll);
+    document.addEventListener('scroll', onScroll);
 
-		return () => document.removeEventListener('scroll', onScroll);
-	}, [showFixed]);
+    return () => document.removeEventListener('scroll', onScroll);
+  }, [showFixed]);
 
-	const renderList = (fixed) => {
-		return (
-			<List fixed={fixed}>
-				{categories.map((category) => (
-					<Item key={category.id}>
-						<Category {...category} />
-					</Item>
-				))}
-			</List>
-		);
-	};
+  const renderList = (fixed) => {
+    return (
+      <List fixed={fixed}>
+        {categories.map((category) => (
+          <Item key={category.id}>
+            <Category {...category} path={`/pet/${category.id}`} />
+          </Item>
+        ))}
+      </List>
+    );
+  };
 
-	if (loading) {
-		return <Spinner />;
-	}
+  if (loading) {
+    return <Spinner />;
+  }
 
-	return (
-		<>
-			{renderList()}
-			{showFixed && renderList(true)}
-		</>
-	);
+  return (
+    <>
+      {renderList()}
+      {showFixed && renderList(true)}
+    </>
+  );
 };
