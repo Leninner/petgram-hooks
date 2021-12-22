@@ -1,8 +1,9 @@
 import React from 'react';
-import { ImgWrapper, Img, Button, Article } from './styles';
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
+import { ImgWrapper, Img, Article } from './styles';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
+import FavButton from '../FavButton';
+import { useToggleLikeMutation } from '../../hooks/useToggleLikeMutation';
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_150/v1555671700/category_cats.jpg';
 
@@ -11,8 +12,19 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
 
   const [liked, setLiked] = useLocalStorage(key, false);
   const [show, imgRef] = useNearScreen();
+  const { mutation, mutationLoading, mutationError } = useToggleLikeMutation();
 
-  const Icon = liked ? MdFavorite : MdFavoriteBorder;
+  const handleFavClick = () => {
+    !liked &&
+      mutation({
+        variables: {
+          input: { id },
+        },
+      });
+    setLiked(!liked);
+  };
+
+  console.log('{ mutation, mutationLoading, mutationError }', { mutation, mutationLoading, mutationError });
 
   return (
     <Article ref={imgRef}>
@@ -24,10 +36,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
               <Img src={src} alt={id} />
             </ImgWrapper>
           </a>
-          <Button onClick={() => setLiked(!liked)}>
-            <Icon size='32px' />
-            {likes} likes!
-          </Button>
+          <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
       )}
     </Article>
