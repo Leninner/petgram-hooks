@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Layout } from '../container/Layout';
 import { MainRoute } from './MainRoute';
 import { PrivateRoute } from './PrivateRoute';
+import Context from '../Context';
 
 export const App = () => {
   return (
@@ -12,7 +13,7 @@ export const App = () => {
         <GlobalStyles />
         <Layout>
           <MainRoute />
-          <PrivateRoute isAuth={false} />
+          <Context.Consumer>{({ isAuth }) => <PrivateRoute isAuth={isAuth} />}</Context.Consumer>
         </Layout>
       </BrowserRouter>
     </>
