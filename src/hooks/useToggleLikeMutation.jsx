@@ -12,5 +12,6 @@ const LIKE_PHOTO = gql`
 
 export const useToggleLikeMutation = () => {
   const [mutation, { data, loading, error }] = useMutation(LIKE_PHOTO);
+
   return { mutation, data, loading, error };
 };
