@@ -11,7 +11,7 @@ const Provider = ({ children }) => {
     isAuth,
     activateAuth: (token) => {
       setIsAuth(true);
-      window.sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
     },
   };
 
