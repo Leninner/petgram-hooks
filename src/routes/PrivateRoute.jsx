@@ -3,6 +3,8 @@ import { Home } from '../pages/Home';
 import { Detail } from '../pages/Detail';
 import { NotRegisteredUser } from '../pages/NotRegisteredUser';
 import { NotFound } from '../pages/NotFound';
+import { User } from '../pages/User';
+import { Favs } from '../pages/Favs';
 import { Routes, Route } from 'react-router-dom';
 
 export const PrivateRoute = ({ isAuth }) => {
@@ -24,8 +26,6 @@ export const PrivateRoute = ({ isAuth }) => {
         </>
       )}
 
-      <Route path='/login' element={<NotRegisteredUser isAuth={isAuth} />} />
-      <Route path='/register' element={<NotRegisteredUser isAuth={isAuth} />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   );

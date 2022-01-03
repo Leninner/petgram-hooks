@@ -46,7 +46,6 @@ export const NotRegisteredUser = () => {
           disabled={loadingLogin}
           error={errorMsgLogin}
           msm='¿No tienes una Cuenta?'
-          path='/register'
           top='Registrate'
           login={handleLogin}
         />
@@ -57,7 +56,6 @@ export const NotRegisteredUser = () => {
           error={errorMsgRegister}
           disabled={loadingRegister}
           msm='¿Ya tienes una cuenta?'
-          path='/login'
           top='Inicia Sesión'
           login={handleLogin}
         />

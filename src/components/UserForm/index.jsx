@@ -4,7 +4,7 @@ import { Input, Form, Title, Error } from './Styles';
 import { SubmitButton } from '../SubmitButton';
 import { Link } from 'react-router-dom';
 
-export const UserForm = ({ onSubmit, title, error, disabled, onClick, msm, path, top, login }) => {
+export const UserForm = ({ onSubmit, title, error, disabled, onClick, msm, top, login }) => {
   const email = useInputValue('');
   const password = useInputValue('');
 
@@ -22,7 +22,7 @@ export const UserForm = ({ onSubmit, title, error, disabled, onClick, msm, path,
 
         <span>
           {msm}
-          <Link to={path} onClick={login}>
+          <Link to='/user' onClick={login}>
             {top}
           </Link>
         </span>
