@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalStyles } from '../styles/GlobalStyles';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
 import { Layout } from '../container/Layout';
 import { MainRoute } from './MainRoute';
 import { PrivateRoute } from './PrivateRoute';
