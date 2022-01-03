@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Context } from '../Context';
 import { UserForm } from '../components/UserForm';
 import { useRegisterMutation } from '../hooks/useRegisterMutation';
@@ -6,6 +6,12 @@ import { useLoginUser } from '../hooks/useLoginUser';
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Context);
+
+  const [login, setLogin] = useState(false);
+
+  const handleLogin = () => {
+    setLogin(!login);
+  };
 
   const { registerMutation, loading: loadingRegister, error: errorRegister } = useRegisterMutation();
   const { loginMutation, loading: loadingLogin, error: errorLogin } = useLoginUser();
@@ -33,9 +39,29 @@ export const NotRegisteredUser = () => {
 
   return (
     <>
-      <UserForm onSubmit={onSubmitLogin} title='Iniciar Sesión' disabled={loadingLogin} error={errorMsgLogin} />
-
-      <UserForm onSubmit={onSubmitRegister} title='Registrarse' error={errorMsgRegister} disabled={loadingRegister} />
+      {login ? (
+        <UserForm
+          onSubmit={onSubmitLogin}
+          title='Inicia Sesión'
+          disabled={loadingLogin}
+          error={errorMsgLogin}
+          msm='¿No tienes una Cuenta?'
+          path='/register'
+          top='Registrate'
+          login={handleLogin}
+        />
+      ) : (
+        <UserForm
+          onSubmit={onSubmitRegister}
+          title='Registrate'
+          error={errorMsgRegister}
+          disabled={loadingRegister}
+          msm='¿Ya tienes una cuenta?'
+          path='/login'
+          top='Inicia Sesión'
+          login={handleLogin}
+        />
+      )}
     </>
   );
 };
