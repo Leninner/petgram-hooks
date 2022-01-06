@@ -4,6 +4,7 @@ import { UserForm } from '../components/UserForm';
 import { useRegisterMutation } from '../hooks/useRegisterMutation';
 import { useLoginUser } from '../hooks/useLoginUser';
 import { useNavigate } from 'react-router-dom';
+import { Layout } from '../container/Layout';
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Context);
@@ -44,25 +45,29 @@ export const NotRegisteredUser = () => {
   return (
     <>
       {login ? (
-        <UserForm
-          onSubmit={onSubmitLogin}
-          title='Inicia Sesión'
-          disabled={loadingLogin}
-          error={errorMsgLogin}
-          msm='¿No tienes una Cuenta?'
-          top='Registrate'
-          login={handleLogin}
-        />
+        <Layout title='Login'>
+          <UserForm
+            onSubmit={onSubmitLogin}
+            title='Inicia Sesión'
+            disabled={loadingLogin}
+            error={errorMsgLogin}
+            msm='¿No tienes una Cuenta?'
+            top='Registrate'
+            login={handleLogin}
+          />
+        </Layout>
       ) : (
-        <UserForm
-          onSubmit={onSubmitRegister}
-          title='Registrate'
-          error={errorMsgRegister}
-          disabled={loadingRegister}
-          msm='¿Ya tienes una cuenta?'
-          top='Inicia Sesión'
-          login={handleLogin}
-        />
+        <Layout title='Registrate'>
+          <UserForm
+            onSubmit={onSubmitRegister}
+            title='Registrate'
+            error={errorMsgRegister}
+            disabled={loadingRegister}
+            msm='¿Ya tienes una cuenta?'
+            top='Inicia Sesión'
+            login={handleLogin}
+          />
+        </Layout>
       )}
     </>
   );

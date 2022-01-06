@@ -14,3 +14,9 @@ export const Button = styled.button`
     opacity: 0.5;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;

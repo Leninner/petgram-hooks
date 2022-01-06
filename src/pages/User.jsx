@@ -2,14 +2,14 @@ import React from 'react';
 import { useContext } from 'react';
 import { Context } from '../Context';
 import { SubmitButton } from '../components/SubmitButton';
+import { Layout } from '../container/Layout';
 
 export const User = () => {
   const { deactivateAuth } = useContext(Context);
 
   return (
-    <>
-      <h1>User</h1>
+    <Layout title='Usuario'>
       <SubmitButton onClick={deactivateAuth}>Log Out</SubmitButton>
-    </>
+    </Layout>
   );
 };
