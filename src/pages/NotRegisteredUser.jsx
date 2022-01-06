@@ -3,9 +3,12 @@ import { Context } from '../Context';
 import { UserForm } from '../components/UserForm';
 import { useRegisterMutation } from '../hooks/useRegisterMutation';
 import { useLoginUser } from '../hooks/useLoginUser';
+import { useNavigate } from 'react-router-dom';
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Context);
+
+  const navigate = useNavigate();
 
   const [login, setLogin] = useState(false);
 
@@ -34,6 +37,7 @@ export const NotRegisteredUser = () => {
     loginMutation({ variables: variable }).then(({ data }) => {
       const { login } = data;
       activateAuth(login);
+      navigate('/');
     });
   };
 

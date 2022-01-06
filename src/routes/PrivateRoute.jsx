@@ -9,24 +9,26 @@ import { Routes, Route } from 'react-router-dom';
 
 export const PrivateRoute = ({ isAuth }) => {
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/pet/:id' element={<Home />} />
-      <Route path='/detail/:detailId' element={<Detail />} />
+    <>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/pet/:id' element={<Home />} />
+        <Route path='/detail/:detailId' element={<Detail />} />
 
-      {isAuth ? (
-        <>
-          <Route path='/user' element={<User />} />
-          <Route path='/favs' element={<Favs />} />
-        </>
-      ) : (
-        <>
-          <Route path='/user' element={<NotRegisteredUser isAuth={isAuth} />} />
-          <Route path='/favs' element={<NotRegisteredUser isAuth={isAuth} />} />
-        </>
-      )}
+        {isAuth ? (
+          <>
+            <Route path='/user' element={<User />} />
+            <Route path='/favs' element={<Favs />} />
+          </>
+        ) : (
+          <>
+            <Route path='/user' element={<NotRegisteredUser isAuth={isAuth} />} />
+            <Route path='/favs' element={<NotRegisteredUser isAuth={isAuth} />} />
+          </>
+        )}
 
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </>
   );
 };

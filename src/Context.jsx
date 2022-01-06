@@ -4,7 +4,7 @@ export const Context = createContext();
 
 const Provider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(() => {
-    return sessionStorage.getItem('token');
+    return sessionStorage.getItem('token') || false;
   });
 
   const value = {
