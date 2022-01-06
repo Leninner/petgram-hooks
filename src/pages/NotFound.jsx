@@ -3,7 +3,7 @@ import React from 'react';
 import { NotFoundContainer } from './styles';
 import { Layout } from '../container/Layout';
 
-export const NotFound = () => {
+export default () => {
   return (
     <Layout title='Página no existente'>
       <NotFoundContainer>

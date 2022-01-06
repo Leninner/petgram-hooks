@@ -3,7 +3,7 @@ import { PhotoCardWithQuery } from '../container/PhotoCardWithQuery';
 import { useParams } from 'react-router-dom';
 import { Layout } from '../container/Layout';
 
-export const Detail = () => {
+export default () => {
   const { detailId } = useParams();
 
   return (

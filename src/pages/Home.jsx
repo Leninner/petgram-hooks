@@ -4,7 +4,7 @@ import { ListOfPhotoCards } from '../components/ListOfPhotoCards';
 import { useParams } from 'react-router-dom';
 import { Layout } from '../container/Layout';
 
-export const Home = () => {
+const HomePage = () => {
   const { id } = useParams();
 
   return (
@@ -14,3 +14,9 @@ export const Home = () => {
     </Layout>
   );
 };
+
+const Home = React.memo(HomePage, (prevProps, currentProps) => {
+  return prevProps.categoryId === currentProps.categoryId;
+});
+
+export default Home;

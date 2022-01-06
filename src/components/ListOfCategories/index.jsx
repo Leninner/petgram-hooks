@@ -6,7 +6,7 @@ import { useDataFetched } from '../../hooks/useDataFetched';
 
 const API = 'https://petgram-server-leninner.vercel.app/categories';
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const { categories, loading } = useDataFetched(API, 'categories');
 
   const [showFixed, setShowFixed] = useState(false);
@@ -46,3 +46,5 @@ export const ListOfCategories = () => {
     </>
   );
 };
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent);

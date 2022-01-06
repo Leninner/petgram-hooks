@@ -6,7 +6,7 @@ import { useLoginUser } from '../hooks/useLoginUser';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '../container/Layout';
 
-export const NotRegisteredUser = () => {
+export default () => {
   const { activateAuth } = useContext(Context);
 
   const navigate = useNavigate();

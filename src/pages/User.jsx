@@ -4,7 +4,7 @@ import { Context } from '../Context';
 import { SubmitButton } from '../components/SubmitButton';
 import { Layout } from '../container/Layout';
 
-export const User = () => {
+export default () => {
   const { deactivateAuth } = useContext(Context);
 
   return (
