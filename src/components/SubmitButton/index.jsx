@@ -1,5 +1,6 @@
 import { Button, ButtonWrapper } from './styles';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const SubmitButton = ({ children, disabled, onClick }) => {
   return (
@@ -9,4 +10,10 @@ export const SubmitButton = ({ children, disabled, onClick }) => {
       </Button>
     </ButtonWrapper>
   );
+};
+
+SubmitButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
 };

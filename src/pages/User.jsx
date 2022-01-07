@@ -1,5 +1,4 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Context } from '../Context';
 import { SubmitButton } from '../components/SubmitButton';
 import { Layout } from '../container/Layout';

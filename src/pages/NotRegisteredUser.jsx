@@ -3,15 +3,13 @@ import { Context } from '../Context';
 import { UserForm } from '../components/UserForm';
 import { useRegisterMutation } from '../hooks/useRegisterMutation';
 import { useLoginUser } from '../hooks/useLoginUser';
-import { useNavigate } from 'react-router-dom';
 import { Layout } from '../container/Layout';
+import { useNavigate } from 'react-router-dom';
 
 export default () => {
   const { activateAuth } = useContext(Context);
-
-  const navigate = useNavigate();
-
   const [login, setLogin] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     setLogin(!login);
@@ -29,6 +27,7 @@ export default () => {
     registerMutation({ variables: variable }).then(({ data }) => {
       const { signup } = data;
       activateAuth(signup);
+      navigate('/');
     });
   };
 
