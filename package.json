@@ -9,7 +9,9 @@
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0"
+    "webpack-dev-server": "^4.6.0",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "dependencies": {
     "@apollo/client": "^3.5.6",
