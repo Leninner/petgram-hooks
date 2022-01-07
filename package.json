@@ -6,6 +6,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "babel-loader": "^8.2.3",
+    "cypress": "^9.2.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
@@ -33,7 +34,8 @@
   "scripts": {
     "now-build": "npm run build",
     "start": "webpack serve --mode development --open --history-api-fallback",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "test": "cypress run --browser chrome"
   },
   "repository": {
     "type": "git",
