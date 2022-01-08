@@ -8,6 +8,7 @@
     "babel-loader": "^8.2.3",
     "cypress": "^9.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "standard": "^16.0.4",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0",
@@ -47,5 +48,10 @@
   "bugs": {
     "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
   },
-  "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme"
+  "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
+  }
 }

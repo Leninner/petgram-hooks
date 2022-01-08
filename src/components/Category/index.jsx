@@ -1,6 +1,6 @@
+/* eslint-disable semi */
 import React from 'react';
-import { Link } from './styles';
-import { Image } from './styles';
+import { Link, Image } from './styles';
 
 const DEFAULT_IMAGE = 'https://i.imgur.com/dJa0Hpl.jpg';
 
